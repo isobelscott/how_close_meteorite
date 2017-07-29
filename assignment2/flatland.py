@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import math
+import time
 
 class Shape(object):
     """ Defines a geometric shape."""
@@ -103,11 +104,13 @@ if __name__ == '__main__':
     tri1allies = Shape.ea_list(triangle_allies)
     tri1enemies = Shape.ea_list(triangle_enemies)
     print("I am friends with " + tri1allies + " and enemies with " + tri1enemies) 
+    time.sleep(2)
 
     print(cir1)
     cir1allies = Shape.ea_list(circle_allies)
     cir1enemies = Shape.ea_list(circle_enemies)
     print("I am friends with " + cir1allies + " and enemies with " + cir1enemies)
+    time.sleep(2)
 
     print(squ1)
     squ1allies = "no one"
