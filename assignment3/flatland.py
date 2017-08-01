@@ -28,14 +28,13 @@ class Shape(object):
         return list(self.__class__.enemies)
 
     def give_name(self, shape_name):
-        self.__class__.shape_name = shape_name
-        return self.__class__.shape_name
+        self.shape_name = shape_name
+        return self.shape_name
 
 
 class Triangle(Shape):
     """ Contains methods specific to an equilateral triangle."""    
     shape_type = "Triangle"
-    shape_name = ''
     allies = set()
     enemies = set()
 
@@ -55,7 +54,6 @@ class Triangle(Shape):
 class Square(Shape):
     """ Contains methods specific to a square."""
     shape_type = "Square"
-    shape_name = ''
     allies = set()
     enemies = set()
     
@@ -71,7 +69,6 @@ class Square(Shape):
 class Circle(Shape):
     """ Contains methods specific to a circle with the side being the radius."""
     shape_type = "Circle"
-    shape_name = ''
     allies = set()
     enemies = set()
     
@@ -104,19 +101,19 @@ if __name__ == '__main__':
     print(tri1)
     tri1allies = Shape.ea_list(triangle_allies)
     tri1enemies = Shape.ea_list(triangle_enemies)
-    print("I am friends with " + tri1allies + " and enemies with " + tri1enemies) 
+    print("I am friends with " + tri1allies + " and enemies with " + tri1enemies + '\n') 
     time.sleep(2)
 
     print(cir1)
     cir1allies = Shape.ea_list(circle_allies)
     cir1enemies = Shape.ea_list(circle_enemies)
-    print("I am friends with " + cir1allies + " and enemies with " + cir1enemies)
+    print("I am friends with " + cir1allies + " and enemies with " + cir1enemies + '\n')
     time.sleep(2)
 
     print(squ1)
     squ1allies = "no one"
     squ1enemies = Shape.ea_list(square_enemies)
-    print("I am friends with " + squ1allies + " and enemies with " + squ1enemies)
+    print("I am friends with " + squ1allies + " and enemies with " + squ1enemies + '\n')
 
 
 
