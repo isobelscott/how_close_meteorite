@@ -20,14 +20,12 @@ class Shape(object):
         return self.side
 
     def add_ally(self, shape_object):
-        self.allies = set()
-        self.allies.add(shape_object)
-        return list(self.allies)
-  
+        self.__class__.allies.add(shape_object)
+        return list(self.__class__.allies)
+ 
     def add_enemy(self, shape_object):
-        self.enemies = set()
-        self.enemies.add(shape_object)
-        return list(self.enemies)
+        self.__class__.enemies.add(shape_object)
+        return self.__class__.enemies
 
     def give_name(self, shape_name):
         self.shape_name = shape_name
@@ -39,6 +37,9 @@ class Shape(object):
 
 class Triangle(Shape):
     """ Contains methods specific to an equilateral triangle."""    
+    allies = set()
+    enemies = set()
+
     def __init__(self, length):
         super().__init__(length)
 
@@ -53,6 +54,9 @@ class Triangle(Shape):
 
 class Square(Shape):
     """ Contains methods specific to a square."""
+    allies = set()
+    enemies = set()
+    
     def area(self):
         area = self.side * self.side
         return area
@@ -64,6 +68,9 @@ class Square(Shape):
 
 class Circle(Shape):
     """ Contains methods specific to a circle with the side being the radius."""
+    allies = set()
+    enemies = set()
+    
     def area(self):
         area = math.pi * self.side * self.side 
         return area
@@ -93,13 +100,12 @@ if __name__ == '__main__':
     circle_allies = Shape.add_ally(cir1, "Triangle")
     circle_enemies = Shape.add_enemy(cir1, "Square")
     
-    
     print(tri1)
     tri1allies = Shape.ea_list(triangle_allies)
     tri1enemies = Shape.ea_list(triangle_enemies)
     print("I am friends with " + tri1allies + " and enemies with " + tri1enemies + '\n') 
     time.sleep(2)
-
+    
     print(cir1)
     cir1allies = Shape.ea_list(circle_allies)
     cir1enemies = Shape.ea_list(circle_enemies)
@@ -110,5 +116,3 @@ if __name__ == '__main__':
     squ1allies = "no one"
     squ1enemies = Shape.ea_list(square_enemies)
     print("I am friends with " + squ1allies + " and enemies with " + squ1enemies + '\n')
-
-
