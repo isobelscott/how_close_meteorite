@@ -57,6 +57,9 @@ class Square(Shape):
     allies = set()
     enemies = set()
     
+    def __init__(self, length):
+        super().__init__(length)
+
     def area(self):
         area = self.side * self.side
         return area
@@ -71,6 +74,9 @@ class Circle(Shape):
     allies = set()
     enemies = set()
     
+    def __init__(self, length):
+        super().__init__(length)
+
     def area(self):
         area = math.pi * self.side * self.side 
         return area
@@ -103,7 +109,10 @@ if __name__ == '__main__':
     print(tri1)
     tri1allies = Shape.ea_list(triangle_allies)
     tri1enemies = Shape.ea_list(triangle_enemies)
-    print("I am friends with " + tri1allies + " and enemies with " + tri1enemies + '\n') 
+    tri1area = str(round(Triangle.area(tri1), 2))
+    tri1peri = str(round(Triangle.perimeter(tri1), 2))
+    print("I am friends with " + tri1allies + " and enemies with " + tri1enemies)
+    print("My area is " + tri1area + " square meters, that's a perimeter of " + tri1peri + " meters, people!" + '\n')
     time.sleep(2)
     
     print(cir1)
