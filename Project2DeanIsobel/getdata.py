@@ -50,9 +50,14 @@ def join_things(a, b):
     return d
 
 
+def pandas_csv(df):
+    new_csv = df.to_csv('orbitsnimpacts.csv', header=False, index=False)
+    return new_csv
+
+
 if __name__ == '__main__':
     impact = get_impact()
     orbit = get_orbit()
     df = join_things(impact, orbit)
-    print(df)
+    pandas_csv(df)
 
