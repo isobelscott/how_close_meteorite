@@ -4,8 +4,8 @@ import csv
 import pandas as pd
 import numpy as np
 
-
 def get_impact():
+    """ get the name of the space objects and their diameter from one csv """
     with open('/Users/isobel/Downloads/asteroid-impacts/impacts.csv') as csvfile:
         impactreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         impact_name_list = []
@@ -21,6 +21,7 @@ def get_impact():
 
 
 def get_orbit():
+    """ get the name of the space objects and their perhelion distance from another csv"""
     with open('/Users/isobel/Downloads/asteroid-impacts/orbits.csv') as csvfile:
         orbitreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         orbit_name_list = []
@@ -38,6 +39,7 @@ def get_orbit():
 
 
 def join_things(a, b):
+    """ making sure only the space objects that are in both lists are present here """
     c = []
     for row in a:
         index = np.where(b[:,0] == row[0])[0]
@@ -51,8 +53,10 @@ def join_things(a, b):
 
 
 def pandas_csv(df):
+    """ makes the pandas df a csv """
     new_csv = df.to_csv('orbitsnimpacts.csv', header=False, index=False)
     return new_csv
+
 
 
 if __name__ == '__main__':
