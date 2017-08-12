@@ -39,7 +39,7 @@ def get_orbit():
 
 
 def join_things(a, b):
-    """ making sure only the space objects that are in both lists are present here """
+    """ making sure only the space objects that are in both lists are present and make into a nice pandas dataframe """
     c = []
     for row in a:
         index = np.where(b[:,0] == row[0])[0]
@@ -49,8 +49,10 @@ def join_things(a, b):
             c.append([row[0], row[1], 0])
 
     d = pd.DataFrame(c)
+    d = d.ix[1:683]
+    d.columns = ['Name', 'Asteroid Diameter (km)', 'Perihelion Distance (AU)']
     return d
-
+    
 
 def pandas_csv(df):
     """ makes the pandas df a csv """
@@ -63,5 +65,5 @@ if __name__ == '__main__':
     impact = get_impact()
     orbit = get_orbit()
     df = join_things(impact, orbit)
-    pandas_csv(df)
+    print(df)
 
