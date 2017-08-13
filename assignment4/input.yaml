@@ -1,0 +1,28 @@
+person:
+   fname: theo
+   lname: varhol
+   month: 03
+   year: 2015
+   fcolor: yellow
+   fmovie: best of elmo 2
+person:
+   fname: simon
+   lname: scott
+   month: 09
+   year: 1957
+   fcolor: green
+   fmovie: vertigo
+person:
+   fname: roger
+   lname: scott
+   month: 07
+   year: 1989
+   fcolor: orange
+   fmovie: 8 1/2
+person:
+   fname: jasper
+   lname: scott
+   month: 12
+   year: 1992
+   fcolor: blue
+   fmovie: scarface
